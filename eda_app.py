@@ -17,26 +17,26 @@ def run_eda_app():
 
 	if submenu == "Descriptive":
 		st.dataframe(df)
-
-		with st.beta_expander("Data Types"):
+		# replace st.beta_expander to st.expander
+		with st.expander("Data Types"):
 			st.dataframe(df.dtypes)
 
-		with st.beta_expander("Summary"):
+		with st.expander("Summary"):
 			st.dataframe(df.describe())
 
-		with st.beta_expander("Age"):
+		with st.expander("Age"):
 			st.dataframe(freq)
 
-		with st.beta_expander("Gender Distribution"):
+		with st.expander("Gender Distribution"):
 			st.dataframe(df["Gender"].value_counts())
 
-		with st.beta_expander("Class Distribution"):
+		with st.expander("Class Distribution"):
 			st.dataframe(df["class"].value_counts())
 
 	elif submenu == "Plots":
 		st.subheader("Visualization Plots")
 
-		with st.beta_expander("Plots based on Gender"):
+		with st.expander("Plots based on Gender"):
 			#fig = plt.figure()
 			#sns.countplot(df['Gender'])
 			#st.pyplot(fig)
@@ -49,7 +49,7 @@ def run_eda_app():
 			p1 = px.pie(gender_df, names = "Gender", values = "Count")
 			st.plotly_chart(p1)
 
-		with st.beta_expander("Plots based on Class"):
+		with st.expander("Plots based on Class"):
 			fig = plt.figure()
 			sns.countplot(df['class'])
 			st.pyplot(fig)
@@ -59,11 +59,11 @@ def run_eda_app():
 			class_df.columns = ["Class", "Count"]
 			#st.dataframe(class_df)
 
-		with st.beta_expander("Plots based on age"):
+		with st.expander("Plots based on age"):
 			#st.dataframe(freq)
 			p2 = px.bar(freq,x = "s",y = "count")
 			st.plotly_chart(p2)
 
-		with st.beta_expander("Outlier Detection"):
+		with st.expander("Outlier Detection"):
 			p3 = px.box(df, x = "Age")
 			st.plotly_chart(p3)
