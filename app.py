@@ -66,7 +66,9 @@ def main():
 		github = "https://github.com/ASR373"
 		mail = "vishra373@gmail.com"
 		website = "https://fittechie.in/"
-		with st.beta_expander("Links to all my Socials"):
+		#with st.beta_expander("Links to all my Socials"):
+		# With this line
+		with st.expander("Plots based on Gender"):
 			a = st.selectbox("Socials", socials)
 			if a =="LinkedIn":
 				st.write(linkedin)
