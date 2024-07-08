@@ -59,8 +59,8 @@ def run_ml_app():
 	st.subheader("Machine Learning Section")
 	#loaded_model = load_model(r"C:\Users\ADITH SREE RAM\Desktop\models\logistic_regression_model_diabetes.pkl")
 	loaded_model = load_model("log_reg_model.pkl")
-
-	with st.beta_expander("Attributes Info"):
+	#replace st.beta_expander to st.expander
+	with st.expander("Attributes Info"):
 		st.markdown(attrib_info,unsafe_allow_html=True)
 
 	# Layout
@@ -87,7 +87,7 @@ def run_ml_app():
 		alopecia = st.radio("alopecia",["No","Yes"]) 
 		obesity = st.select_slider("obesity",["No","Yes"]) 
 
-	with st.beta_expander("Your Selected Options"):
+	with st.expander("Your Selected Options"):
 		result = {'age':age,
 		'gender':gender,
 		'polyuria':polyuria,
@@ -117,7 +117,7 @@ def run_ml_app():
 
 
 		# st.write(encoded_result)
-	with st.beta_expander("Prediction Results"):
+	with st.expander("Prediction Results"):
 		single_sample = np.array(encoded_result).reshape(1,-1)
 
 		
