@@ -64,8 +64,8 @@ def run_ml_app():
 		st.markdown(attrib_info,unsafe_allow_html=True)
 
 	# Layout
-	col1,col2 = st.beta_columns(2)
-
+	#col1,col2 = st.beta_columns(2)
+	col1, col2 = st.columns(2)
 	with col1:
 		age = st.number_input("Age",10,100)
 		gender = st.radio("Gender",("Female","Male"))
